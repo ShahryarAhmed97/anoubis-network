@@ -1,0 +1,36 @@
+namespace com.anoubis
+
+asset Commodity identified by id {
+  o String id
+  o String name
+  o String collection
+  o Size size
+  o String colour
+  o Integer amount
+  o String imageUrl
+  o String details
+  --> Trader[] pastOwners
+  --> Trader owner
+}
+
+enum Size {
+  o XS
+  o S
+  o M
+  o L
+  o XL
+}
+
+participant Trader identified by tradeId {
+  o String tradeId
+  o String name
+}
+
+transaction Trade {
+  --> Commodity commodity
+  --> Trader newOwner
+}
+
+event TradeNotification {
+  --> Commodity commodity
+}
