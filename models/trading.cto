@@ -9,7 +9,7 @@ asset Commodity identified by id {
   o Integer amount
   o String imageUrl
   o String details
-  --> Trader[] pastOwners
+  --> Trader[] Owners
   --> Trader owner
 }
 
