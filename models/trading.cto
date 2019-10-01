@@ -10,7 +10,6 @@ asset Commodity identified by id {
   o String imageUrl
   o String registrationDate
   o String details
-  o String timestamp
   --> Trader[] owners
   --> Trader owner
 }
@@ -26,6 +25,7 @@ enum Size {
 participant Trader identified by tradeId {
   o String tradeId
   o String name
+  o String timestamp
 }
 
 transaction Trade {
