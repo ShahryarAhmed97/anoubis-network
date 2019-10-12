@@ -10,6 +10,7 @@ asset Commodity identified by id {
   o String imageUrl
   o String registrationDate
   o String details
+  o String productNumber
   --> Trader[] owners
   --> Trader owner
 }
