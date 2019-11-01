@@ -1,26 +1,28 @@
 namespace com.anoubis
 
-asset Commodity identified by id {
-  o String id
-  o String name
-  o String collection
-  o Size size
-  o String colour
-  o Integer amount
-  o String imageUrl
-  o String registrationDate
-  o String details
-  o String productNumber
-  --> Trader[] owners
-  --> Trader owner
+asset Collection identified by collectionName {
+  o String collectionName
+  o String[] subCollectionIDs
+  o Integer totalAmount
+  o Integer registeredDate
+  o Integer endProductNumber
+  o String productName
 }
 
-enum Size {
-  o XS
-  o S
-  o M
-  o L
-  o XL
+asset SubCollection identified by subCollectionID {
+  o String subCollectionID
+  o Integer amount
+  o String[] productIDs
+}
+
+asset Product identified by id {
+  o String id
+  o String subCollectionID
+  o Integer productNumber
+  o String productName
+  o String productDetails
+  o Trader[] owners
+  --> Trader owner
 }
 
 participant Trader identified by tradeId {
@@ -30,10 +32,10 @@ participant Trader identified by tradeId {
 }
 
 transaction Trade {
-  --> Commodity commodity
+  --> Product product
   --> Trader newOwner
 }
 
 event TradeNotification {
-  --> Commodity commodity
+  --> Product product
 }
