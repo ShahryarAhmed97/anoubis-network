@@ -13,14 +13,14 @@
  */
 
 query selectCommodities {
-  description: "Select all commodities"
+  description: "Select all products"
   statement:
-      SELECT com.anoubis.Commodity
+      SELECT com.anoubis.Product
 }
 
 query selectCommoditiesByOwner {
-  description: "Select all commodities based on their owner"
+  description: "Select all Products based on their owner"
   statement:
-      SELECT com.anoubis.Commodity
+      SELECT com.anoubis.Product
           WHERE (owner == _$owner)
 }
