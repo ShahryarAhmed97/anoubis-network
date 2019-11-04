@@ -11,6 +11,7 @@ asset Collection identified by collectionName {
 
 asset SubCollection identified by subCollectionID {
   o String subCollectionID
+  o String subCollectionName
   o Integer amount
   o String[] productIDs
 }
@@ -21,6 +22,8 @@ asset Product identified by id {
   o Integer productNumber
   o String productName
   o String productDetails
+  o String imageURL
+  o String registeredDate
   o Trader[] owners
   --> Trader owner
 }
